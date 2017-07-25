@@ -3,13 +3,10 @@ package com.nivashkiv.demotdd.service;
 import com.nivashkiv.demotdd.domain.Song;
 import com.nivashkiv.demotdd.extensions.MockitoExtension;
 import com.nivashkiv.demotdd.repository.SongRepository;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.HashMap;
 import java.util.List;
@@ -78,7 +75,6 @@ public class SongServiceImplTest {
 
     @Test
     public void songListIsEmpty() throws Exception {
-        suppose
         Map<String, String> songsMap = new HashMap<>();
         List<Song> songs = songService.addAuthorSongs(songsMap, testAuthor);
         verify(songRepository, times(0)).save(any(Song.class));

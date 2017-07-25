@@ -36,15 +36,12 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-mustache')
-	//compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-//	compile('org.springframework.boot:spring-boot-starter-freemarker')
-//	compile('org.springframework.boot:spring-boot-starter-jooq')
 
 	runtime('com.h2database:h2')
-	runtime('mysql:mysql-connector-java')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('net.sourceforge.htmlunit:htmlunit')
+
 	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-M4")
 	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-M4")
 

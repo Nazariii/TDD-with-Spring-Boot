@@ -10,10 +10,8 @@ import org.springframework.util.Assert;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
-import static org.hibernate.validator.internal.util.Contracts.assertTrue;
 
 @Service
 @Transactional
