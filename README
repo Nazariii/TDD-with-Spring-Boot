@@ -3,6 +3,7 @@ Test driven development with spring boot example
 Technologies:
 Spring Boot 2.0.0.M2
 Spring testing
+database-rider 1.1.0
 Mustache
 Hamcrest
 Junit5

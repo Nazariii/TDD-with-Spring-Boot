@@ -39,12 +39,13 @@ dependencies {
 
 	runtime('com.h2database:h2')
 	compileOnly('org.projectlombok:lombok')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('net.sourceforge.htmlunit:htmlunit')
 
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('com.github.database-rider:rider-core:1.1.0')
+	testCompile('com.github.database-rider:rider-junit5:1.1.0'){
+        exclude group: 'org.slf4j'
+    }
+    testCompile('net.sourceforge.htmlunit:htmlunit')
 	testCompile("org.junit.jupiter:junit-jupiter-api:5.0.0-M4")
 	testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.0-M4")
-
-
-
 }
