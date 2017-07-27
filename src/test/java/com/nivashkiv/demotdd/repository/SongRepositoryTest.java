@@ -1,6 +1,5 @@
 package com.nivashkiv.demotdd.repository;
 
-import com.github.database.rider.core.DBUnitRule;
 import com.github.database.rider.core.api.connection.ConnectionHolder;
 import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.junit5.DBUnitExtension;
@@ -26,6 +25,7 @@ public class SongRepositoryTest {
     @Autowired
     protected JdbcTemplate jdbcTemplate;
 
+    //Required by db-rider
     public ConnectionHolder connectionHolder = () -> jdbcTemplate.getDataSource().getConnection();
 
     @Autowired
@@ -33,16 +33,6 @@ public class SongRepositoryTest {
 
     @Autowired
     protected SongRepository songRepository;
-
-    long addRecordToDatabase(String title, String text, String author) {
-        long id = ID++;
-
-        jdbcTemplate.update("INSERT INTO Song " +
-                        " (id, title, text, author" +
-                        ") VALUES (? , ?, ?, ? )"
-                , id, title, text, author);
-        return id;
-    }
 
     @DataSet//Now missing @DataSet causing NPE. Will be fixed in new release
     @Test
@@ -69,5 +59,15 @@ public class SongRepositoryTest {
         assertThat(songRepository.getOne(25L), samePropertyValuesAs(song));
         assertThat(songRepository.findById(25L).get(), samePropertyValuesAs(song));
         assertThat(songRepository.findByAuthor("Unknown"), hasItem(samePropertyValuesAs(song)));
+    }
+
+    long addRecordToDatabase(String title, String text, String author) {
+        long id = ID++;
+
+        jdbcTemplate.update("INSERT INTO Song " +
+                        " (id, title, text, author" +
+                        ") VALUES (? , ?, ?, ? )"
+                , id, title, text, author);
+        return id;
     }
 }
