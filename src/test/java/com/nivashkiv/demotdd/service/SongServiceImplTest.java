@@ -3,6 +3,8 @@ package com.nivashkiv.demotdd.service;
 import com.nivashkiv.demotdd.domain.Song;
 import com.nivashkiv.demotdd.extensions.MockitoExtension;
 import com.nivashkiv.demotdd.repository.SongRepository;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,7 +30,6 @@ public class SongServiceImplTest {
     @Mock
     private SongRepository songRepository;
 
-    @InjectMocks
     private SongServiceImpl songService;
 
     private final String testAuthor = "test Author";
@@ -36,6 +37,11 @@ public class SongServiceImplTest {
     private final String testTitle = "testTitle";
     private final String testText = "testText";
     private final Song testSong = new Song(testTitle, testText, testAuthorTrimmedLowCase);
+
+    @BeforeEach
+    void setUp() {
+        songService = new SongServiceImpl(songRepository);
+    }
 
     @Test
     public void findAll() throws Exception {

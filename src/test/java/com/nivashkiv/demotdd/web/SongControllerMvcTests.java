@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(SongController.class)
-public class SongControllerIntegrationTests {
+public class SongControllerMvcTests {
 
     @Autowired
     private MockMvc mockMvc;

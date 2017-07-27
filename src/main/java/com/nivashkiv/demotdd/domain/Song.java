@@ -1,5 +1,7 @@
 package com.nivashkiv.demotdd.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.nivashkiv.demotdd.json.SongAuthorJsonSerializer;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -24,5 +26,6 @@ public class Song {
     private String text;
 
     @NonNull
+    @JsonSerialize(using = SongAuthorJsonSerializer.class)
     private String author;
 }

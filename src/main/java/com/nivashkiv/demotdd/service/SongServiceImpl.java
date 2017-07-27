@@ -19,8 +19,12 @@ public class SongServiceImpl implements SongService {
 
     public static final String AUTHOR_IS_NOT_SPECIFIED_MSG = "Author is not specified";
     public static final String SONGS_MAP_IS_NULL_MSG = "Songs map is null";
-    @Autowired
+
     private SongRepository songRepository;
+
+    public SongServiceImpl(SongRepository songRepository) {
+        this.songRepository = songRepository;
+    }
 
     @Override
     public List<Song> findAll() {
